@@ -4,11 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Lista Pokemones</h1>
-    <asp:GridView ID="dgvPokemons" runat="server" CssClass="table" AutoGenerateColumns="false">
+    <asp:GridView ID="dgvPokemons" runat="server" DataKeyNames="Id"
+        CssClass="table" AutoGenerateColumns="false"
+        OnSelectedIndexChanged="dgvPokemons_SelectedIndexChanged"
+        OnPageIndexChanging="dgvPokemons_PageIndexChanging"
+        AllowPaging="true" PageSize="5">
         <Columns>
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+            <asp:BoundField HeaderText="Numero" DataField="Numero" />
             <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
+            <asp:CommandField HeaderText="Accion" ShowSelectButton="true" SelectText="Seleccionar" />
         </Columns>
     </asp:GridView>
-
+    <a href="FormularioPokemon.aspx" class="btn btn-primary">Nuevo Pokemon</a>
 </asp:Content>
